@@ -1,8 +1,6 @@
 package org.example.zadanko.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
@@ -12,4 +10,10 @@ public class FundraisingEvent {
     @Id
     @GeneratedValue
     private UUID id;
+
+    
+
+    @ManyToOne
+    @JoinColumn(name = "foundation_account_id")
+    private FoundationAccount foundationAccount;
 }

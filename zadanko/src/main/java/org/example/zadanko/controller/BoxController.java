@@ -1,7 +1,7 @@
 package org.example.zadanko.controller;
 
 
-import org.example.zadanko.dto.CreatedBoxDto;
+import org.example.zadanko.dto.CreatedBox.CreatedBoxRequestDto;
 import org.example.zadanko.dto.GetAllAnonymizedBoxesDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +15,8 @@ public class BoxController {
 
 
     @PostMapping("/create")
-    public ResponseEntity<CreatedBoxDto> createBox() {
-        return ResponseEntity.ok(new CreatedBoxDto());
+    public ResponseEntity<CreatedBoxRequestDto> createBox() {
+        return ResponseEntity.ok(new CreatedBoxRequestDto());
     }
 
     @GetMapping("/getAllAnonymizedBoxes")
