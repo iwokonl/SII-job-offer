@@ -31,8 +31,6 @@ public class GlobalExceptionHandler {
                 .stream()
                 .map(violation -> violation.getPropertyPath() + ": " + violation.getMessage())
                 .collect(Collectors.toList());
-
-
         return new ResponseEntity<>(new ExceptionDto(errors), HttpStatus.BAD_REQUEST);
     }
 
@@ -47,23 +45,17 @@ public class GlobalExceptionHandler {
                 String errorMessage = violation.getMessage();
                 errors.put(fieldName, errorMessage);
             }
-
-
             return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
         }
-
         return new ResponseEntity<>(Map.of("error", "Unexpected transaction error"), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationErrors(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();
-
         for (FieldError error : ex.getBindingResult().getFieldErrors()) {
             errors.put(error.getField(), error.getDefaultMessage());
         }
-
-
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
     }
 
