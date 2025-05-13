@@ -2,7 +2,6 @@ package org.example.zadanko.exception;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
-import lombok.extern.slf4j.Slf4j;
 import org.example.zadanko.dto.exception.ExceptionDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,23 +11,16 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Slf4j
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-
-
-
-
     @ExceptionHandler(GeneralAppException.class)
     public ResponseEntity<ExceptionDto> handleGeneralAppException(GeneralAppException ex) {
-        log.error("GeneralAppException: {}", ex.getMessage(), ex);
         return new ResponseEntity<>(new ExceptionDto(ex.getMessage()), ex.getStatus());
     }
 
@@ -79,6 +71,5 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ExceptionDto> handleOtherExceptions(Exception ex) {
         return new ResponseEntity<>(new ExceptionDto(ex.getClass() + ": " + ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
 
 }
