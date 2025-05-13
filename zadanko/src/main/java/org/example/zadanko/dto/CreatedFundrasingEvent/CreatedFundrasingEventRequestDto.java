@@ -2,6 +2,8 @@ package org.example.zadanko.dto.CreatedFundrasingEvent;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import org.example.zadanko.exception.GeneralAppException;
+import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -20,7 +22,7 @@ public record CreatedFundrasingEventRequestDto(
 
     public CreatedFundrasingEventRequestDto {
         if (startDate != null && endDate != null && !startDate.isBefore(endDate)) {
-            throw new IllegalArgumentException("Start date must be before end date");
+            throw new GeneralAppException("Start date must be before end date", HttpStatus.BAD_REQUEST);
         }
     }
 }

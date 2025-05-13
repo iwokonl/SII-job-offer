@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.zadanko.dto.CreatedFundrasingEvent.CreatedFundrasingEventRequestDto;
 import org.example.zadanko.dto.CreatedFundrasingEvent.CreatedFundrasingEventResponseDto;
 import org.example.zadanko.dto.FinancialReport.FinacialReportResponseDto;
+import org.example.zadanko.exception.GeneralAppException;
 import org.example.zadanko.mapper.FundrasingEventMapper;
 import org.example.zadanko.model.Box;
 import org.example.zadanko.model.FoundationAccount;
@@ -11,6 +12,7 @@ import org.example.zadanko.model.FundraisingEvent;
 import org.example.zadanko.repository.BoxRepository;
 import org.example.zadanko.repository.FoundationAccountRepository;
 import org.example.zadanko.repository.FundraisingEventRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,7 +34,7 @@ public class FundrasingEventService {
                         createdFundrasingEventRequestDto
                 );
         FoundationAccount foundationAccount = foundationAccountRepository.findById(createdFundrasingEventRequestDto.foundationAccountId())
-                .orElseThrow(() -> new RuntimeException("Foundation account not found"));
+                .orElseThrow(() -> new GeneralAppException("Foundation account not found", HttpStatus.INTERNAL_SERVER_ERROR));
 
         foundrasingEvent.setFoundationAccount(foundationAccount);
         fundraisingEventRepository.save(foundrasingEvent);
@@ -46,10 +48,10 @@ public class FundrasingEventService {
     @Transactional
     public void removeBox(UUID boxId) {
         FundraisingEvent fundraisingEvent = fundraisingEventRepository.findByBoxId(boxId).orElseThrow(
-                () -> new RuntimeException("Fundraising event not found")
+                () -> new GeneralAppException("Fundraising event not found", HttpStatus.INTERNAL_SERVER_ERROR)
         );
         if (fundraisingEvent.getBox() == null) {
-            throw new RuntimeException("Box not assigned to this fundraising event");
+            throw new GeneralAppException("Box not assigned to this fundraising event", HttpStatus.INTERNAL_SERVER_ERROR);
         }
         Box box = fundraisingEvent.getBox();
         box.getBallanceMap().clear();
@@ -60,18 +62,18 @@ public class FundrasingEventService {
     @Transactional
     public void assignBox(UUID boxId, UUID fundraisingEventId) {
         FundraisingEvent fundraisingEvent = fundraisingEventRepository.findById(fundraisingEventId).orElseThrow(
-                () -> new RuntimeException("Fundraising event not found")
+                () -> new GeneralAppException("Fundraising event not found", HttpStatus.INTERNAL_SERVER_ERROR)
         );
 
         Box box = boxRepository.findById(boxId).orElseThrow(
-                () -> new RuntimeException("Box not found")
+                () -> new GeneralAppException("Box not found", HttpStatus.INTERNAL_SERVER_ERROR)
         );
 
         if (fundraisingEvent.getBox() != null) {
-            throw new RuntimeException("Box already assigned to this fundraising event");
+            throw new GeneralAppException("Box already assigned to this fundraising event", HttpStatus.INTERNAL_SERVER_ERROR);
         }
         if (!box.getBallanceMap().isEmpty()) {
-            throw new RuntimeException("Box is not empty");
+            throw new GeneralAppException("Box is not empty", HttpStatus.INTERNAL_SERVER_ERROR);
         }
         fundraisingEvent.setBox(box);
         box.setFundraisingEvent(fundraisingEvent);
