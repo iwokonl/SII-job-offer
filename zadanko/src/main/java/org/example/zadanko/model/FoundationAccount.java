@@ -3,8 +3,8 @@ package org.example.zadanko.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.UUID;
 
@@ -34,11 +34,12 @@ public class FoundationAccount {
     @OneToMany(mappedBy = "foundationAccount", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<FundraisingEvent> fundraisingEvents;
 
+
     @PrePersist
     @PreUpdate
     private void formatBalance() {
         if (balance != null) {
-            balance = balance.setScale(2, BigDecimal.ROUND_HALF_UP);
+            balance = balance.setScale(2, RoundingMode.HALF_UP);
         }
     }
 }
