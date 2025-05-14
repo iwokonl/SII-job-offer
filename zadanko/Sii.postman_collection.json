@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"asd\",\r\n    \"description\": \"\",\r\n    \"currency\": \"\"\r\n}",
+							"raw": "{\r\n    \"name\": \"asd\",\r\n    \"description\": \"\",\r\n    \"currency\": \"USD\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -44,7 +44,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/fundationAccount/printFinancialReport",
+							"raw": "localhost:8080/api/fundationAccount/printFinancialReport?fundationAccountId=8a8084cc-dd7d-491f-b0e8-94134e97934a",
 							"host": [
 								"localhost"
 							],
@@ -53,6 +53,12 @@
 								"api",
 								"fundationAccount",
 								"printFinancialReport"
+							],
+							"query": [
+								{
+									"key": "fundationAccountId",
+									"value": "8a8084cc-dd7d-491f-b0e8-94134e97934a"
+								}
 							]
 						}
 					},
@@ -70,7 +76,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"\",\r\n    \"description\": \"\",\r\n    \"startDate\": \"\",\r\n    \"endDate\": \"\"\r\n}",
+							"raw": "{\r\n    \"name\": \"asd\",\r\n    \"description\": \"dsa\",\r\n    \"startDate\": \"2023-10-01T10:00:00\",\r\n    \"endDate\": \"2023-10-02T18:00:00\",\r\n    \"foundationAccountId\": \"8a8084cc-dd7d-491f-b0e8-94134e97934a\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -98,7 +104,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/fundraisingEvent/assignBox",
+							"raw": "localhost:8080/api/fundraisingEvent/assignBox?boxId=f91a48b9-4119-4ce5-9554-6fe29ccd2b4d&fundraisingEventId=b4b8a2aa-4a89-4215-b5e2-76cfd16f41bd",
 							"host": [
 								"localhost"
 							],
@@ -107,6 +113,16 @@
 								"api",
 								"fundraisingEvent",
 								"assignBox"
+							],
+							"query": [
+								{
+									"key": "boxId",
+									"value": "f91a48b9-4119-4ce5-9554-6fe29ccd2b4d"
+								},
+								{
+									"key": "fundraisingEventId",
+									"value": "b4b8a2aa-4a89-4215-b5e2-76cfd16f41bd"
+								}
 							]
 						}
 					},
@@ -118,7 +134,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/fundraisingEvent/removeBox?boxId",
+							"raw": "localhost:8080/api/fundraisingEvent/removeBox?boxId=37ac40a3-6fa1-4387-851f-a6435cdbef96",
 							"host": [
 								"localhost"
 							],
@@ -131,7 +147,7 @@
 							"query": [
 								{
 									"key": "boxId",
-									"value": null
+									"value": "37ac40a3-6fa1-4387-851f-a6435cdbef96"
 								}
 							]
 						}
@@ -190,7 +206,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"moneyAmmount\": \"4\",\r\n    \"boxId\": \"357a8554-f332-472d-9eb2-3e8720a8f0aa\",\r\n    \"currency\": \"PLN\"\r\n\r\n}",
+							"raw": "{\r\n    \"moneyAmmount\": \"1\",\r\n    \"boxId\": \"f91a48b9-4119-4ce5-9554-6fe29ccd2b4d\",\r\n    \"currency\": \"USD\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -217,12 +233,8 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"moneyAmmount\": \"2\",\r\n    \"boxId\": \"357a8554-f332-472d-9eb2-3e8720a8f0aa\",\r\n    \"currency\": \"USD\"\r\n\r\n}"
-						},
 						"url": {
-							"raw": "localhost:8080/api/box/transferToFoundation?boxId=37ac40a3-6fa1-4387-851f-a6435cdbef96",
+							"raw": "localhost:8080/api/box/transferToFoundation?boxId=f91a48b9-4119-4ce5-9554-6fe29ccd2b4d",
 							"host": [
 								"localhost"
 							],
@@ -235,7 +247,7 @@
 							"query": [
 								{
 									"key": "boxId",
-									"value": "37ac40a3-6fa1-4387-851f-a6435cdbef96"
+									"value": "f91a48b9-4119-4ce5-9554-6fe29ccd2b4d"
 								}
 							]
 						}
