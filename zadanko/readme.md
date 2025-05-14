@@ -11,5 +11,4 @@
 
 
 ## Endpoints
-Wszystkie endponty są dostępne w pliku `Sii.postman_collection.json` który trzeba zaimportować do postmana.
-
+All endpoints are available in the `Sii.postman_collection.json` file which needs to be imported to Postman.
