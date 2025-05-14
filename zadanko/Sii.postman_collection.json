@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "7fcb3168-a49c-4cf3-b2c1-5d603fd6bacf",
+		"name": "Sii",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29521267"
+	},
+	"item": [
+		{
+			"name": "FundationAccount",
+			"item": [
+				{
+					"name": "createFundationAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"asd\",\r\n    \"description\": \"\",\r\n    \"currency\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/fundationAccount/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fundationAccount",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "printFinancialReport",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/fundationAccount/printFinancialReport",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fundationAccount",
+								"printFinancialReport"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FundraisingEvent",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"\",\r\n    \"description\": \"\",\r\n    \"startDate\": \"\",\r\n    \"endDate\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/fundraisingEvent/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fundraisingEvent",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignBox",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/fundraisingEvent/assignBox",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fundraisingEvent",
+								"assignBox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeBox",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/fundraisingEvent/removeBox?boxId",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fundraisingEvent",
+								"removeBox"
+							],
+							"query": [
+								{
+									"key": "boxId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Box",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/box/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"box",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllAnonymizedBoxes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/box/getAllAnonymizedBoxes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"box",
+								"getAllAnonymizedBoxes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "moneyDonation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"moneyAmmount\": \"4\",\r\n    \"boxId\": \"357a8554-f332-472d-9eb2-3e8720a8f0aa\",\r\n    \"currency\": \"PLN\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/box/moneyDonation",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"box",
+								"moneyDonation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transferToFoundation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"moneyAmmount\": \"2\",\r\n    \"boxId\": \"357a8554-f332-472d-9eb2-3e8720a8f0aa\",\r\n    \"currency\": \"USD\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/box/transferToFoundation?boxId=37ac40a3-6fa1-4387-851f-a6435cdbef96",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"box",
+								"transferToFoundation"
+							],
+							"query": [
+								{
+									"key": "boxId",
+									"value": "37ac40a3-6fa1-4387-851f-a6435cdbef96"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
