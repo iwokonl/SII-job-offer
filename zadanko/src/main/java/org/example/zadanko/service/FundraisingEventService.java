@@ -2,7 +2,7 @@ package org.example.zadanko.service;
 
 import lombok.RequiredArgsConstructor;
 import org.example.zadanko.dto.CreatedFundrasingEvent.CreatedFundrasingEventRequestDto;
-import org.example.zadanko.dto.CreatedFundrasingEvent.CreatedFundrasingEventResponseDto;
+import org.example.zadanko.dto.CreatedFundrasingEvent.CreatedFundraisingEventResponseDto;
 import org.example.zadanko.exception.GeneralAppException;
 import org.example.zadanko.mapper.FundrasingEventMapper;
 import org.example.zadanko.model.Box;
@@ -19,14 +19,14 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class FundrasingEventService {
+public class FundraisingEventService {
 
     private final FundraisingEventRepository fundraisingEventRepository;
     private final FoundationAccountRepository foundationAccountRepository;
     private final BoxRepository boxRepository;
 
     @Transactional
-    public CreatedFundrasingEventResponseDto createFundraisingEvent(CreatedFundrasingEventRequestDto createdFundrasingEventRequestDto) {
+    public CreatedFundraisingEventResponseDto createFundraisingEvent(CreatedFundrasingEventRequestDto createdFundrasingEventRequestDto) {
         FundraisingEvent foundrasingEvent = FundrasingEventMapper.
                 createdFundrasingEventRequestDtoToFundraisingEvent(
                         createdFundrasingEventRequestDto

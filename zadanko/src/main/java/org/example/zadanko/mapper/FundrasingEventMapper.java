@@ -1,7 +1,7 @@
 package org.example.zadanko.mapper;
 
 import org.example.zadanko.dto.CreatedFundrasingEvent.CreatedFundrasingEventRequestDto;
-import org.example.zadanko.dto.CreatedFundrasingEvent.CreatedFundrasingEventResponseDto;
+import org.example.zadanko.dto.CreatedFundrasingEvent.CreatedFundraisingEventResponseDto;
 import org.example.zadanko.model.FundraisingEvent;
 
 public class FundrasingEventMapper {
@@ -20,8 +20,8 @@ public class FundrasingEventMapper {
         );
     }
 
-    public static CreatedFundrasingEventResponseDto FundraisingEventToCreatedFundrasingEventResponseDto(FundraisingEvent foundrasingEvent) {
-        return new CreatedFundrasingEventResponseDto(
+    public static CreatedFundraisingEventResponseDto FundraisingEventToCreatedFundrasingEventResponseDto(FundraisingEvent foundrasingEvent) {
+        return new CreatedFundraisingEventResponseDto(
                 foundrasingEvent.getId(),
                 foundrasingEvent.getName(),
                 foundrasingEvent.getDescription(),
