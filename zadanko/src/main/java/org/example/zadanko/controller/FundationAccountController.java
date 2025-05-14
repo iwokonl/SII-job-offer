@@ -4,7 +4,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.zadanko.dto.CreateFundationAccount.CreateFundationAccountRequestDto;
 import org.example.zadanko.dto.CreateFundationAccount.CreateFundationAccountResponseDto;
-import org.example.zadanko.dto.FinacialReportResponseDto;
+import org.example.zadanko.dto.FinancialReport.FinancialReportResponseDto;
 import org.example.zadanko.service.FundationAccountService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,7 @@ public class FundationAccountController {
     private final FundationAccountService fundationAccountService;
 
     @GetMapping("/printFinancialReport")
-    public ResponseEntity<FinacialReportResponseDto> printFinancialReport(@RequestParam("fundationAccountId") UUID fundationAccountId) {
+    public ResponseEntity<FinancialReportResponseDto> printFinancialReport(@RequestParam("fundationAccountId") UUID fundationAccountId) {
         return ResponseEntity.ok(fundationAccountService.printFinancialReport(fundationAccountId));
     }
 

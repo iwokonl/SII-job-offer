@@ -5,13 +5,11 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.zadanko.dto.CreatedFundrasingEvent.CreatedFundrasingEventRequestDto;
 import org.example.zadanko.dto.CreatedFundrasingEvent.CreatedFundrasingEventResponseDto;
-import org.example.zadanko.dto.FinancialReport.FinacialReportResponseDto;
 import org.example.zadanko.service.FundrasingEventService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -38,8 +36,4 @@ public class FundraisingEventController {
         fundraisingEventService.assignBox(boxId, fundraisingEventId);
     }
 
-    @GetMapping("/financialReport")
-    public ResponseEntity<List<FinacialReportResponseDto>> createFinancialReport() {
-        return ResponseEntity.ok(fundraisingEventService.createFinancialReport());
-    }
 }

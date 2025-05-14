@@ -1,7 +1,6 @@
 package org.example.zadanko.dto.CreateFundationAccount;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import org.example.zadanko.model.Currency;
 import org.example.zadanko.validation.ValidCurrency;
 

@@ -3,7 +3,7 @@ package org.example.zadanko.service;
 import lombok.RequiredArgsConstructor;
 import org.example.zadanko.designPatterns.factory.conversionCurrencyFactory.CurrencyConversionFactory;
 import org.example.zadanko.dto.CreatedBox.CreatedBoxResponseDto;
-import org.example.zadanko.dto.GetAllAnonymizedBoxesResponseDto;
+import org.example.zadanko.dto.GetAllAnonymizedBoxes.GetAllAnonymizedBoxesResponseDto;
 import org.example.zadanko.dto.MoneyDonation.MoneyDonationRequestDto;
 import org.example.zadanko.exception.GeneralAppException;
 import org.example.zadanko.mapper.BoxMapper;

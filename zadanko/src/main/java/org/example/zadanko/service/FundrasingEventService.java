@@ -3,7 +3,6 @@ package org.example.zadanko.service;
 import lombok.RequiredArgsConstructor;
 import org.example.zadanko.dto.CreatedFundrasingEvent.CreatedFundrasingEventRequestDto;
 import org.example.zadanko.dto.CreatedFundrasingEvent.CreatedFundrasingEventResponseDto;
-import org.example.zadanko.dto.FinancialReport.FinacialReportResponseDto;
 import org.example.zadanko.exception.GeneralAppException;
 import org.example.zadanko.mapper.FundrasingEventMapper;
 import org.example.zadanko.model.Box;
@@ -16,7 +15,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -79,14 +77,4 @@ public class FundrasingEventService {
         box.setFundraisingEvent(fundraisingEvent);
     }
 
-    @Transactional(readOnly = true)
-    public List<FinacialReportResponseDto> createFinancialReport() {
-        return fundraisingEventRepository.findAll().stream()
-                .map(fundraisingEvent -> new FinacialReportResponseDto(
-                        fundraisingEvent.getName(),
-                        fundraisingEvent.getFoundationAccount().getBalance(),
-                        fundraisingEvent.getFoundationAccount().getCurrencyType()
-                ))
-                .toList();
-    }
 }

@@ -3,7 +3,7 @@ package org.example.zadanko.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.example.zadanko.dto.CreatedBox.CreatedBoxResponseDto;
-import org.example.zadanko.dto.GetAllAnonymizedBoxesResponseDto;
+import org.example.zadanko.dto.GetAllAnonymizedBoxes.GetAllAnonymizedBoxesResponseDto;
 import org.example.zadanko.dto.MoneyDonation.MoneyDonationRequestDto;
 import org.example.zadanko.service.BoxService;
 import org.springframework.http.HttpStatus;

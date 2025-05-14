@@ -1,4 +1,4 @@
-package org.example.zadanko.dto;
+package org.example.zadanko.dto.GetAllAnonymizedBoxes;
 
 import java.util.UUID;
 

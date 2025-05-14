@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import org.example.zadanko.model.Currency;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 public class CurrencyDeserializer extends JsonDeserializer<Currency> {
 
